@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       // FIXME: decide based on user keyboard
       const shape = 'iso';
-      keyboard.setKeyboardLayout(data.keymap, data.dead_keys, shape);
+      keyboard.setKeyboardLayout(data.keymap, data.deadkeys, shape);
     });
 
   document.body.classList.add('demo');
