@@ -2,8 +2,8 @@ window.addEventListener('DOMContentLoaded', () => {
   'use strict'; // eslint-disable-line
 
   const keyboard = document.querySelector('x-keyboard');
-  const input    = document.querySelector('input');
-  const demo     = document.querySelector('#demo');
+  const input = document.querySelector('input');
+  const demo = document.querySelector('#demo');
 
   if (!keyboard.layout) {
     console.warn('web component x-keyboard couldn\'t be loaded');
@@ -13,15 +13,15 @@ window.addEventListener('DOMContentLoaded', () => {
   fetch(`layouts/qwerty-fr.json`)
     .then(response => response.json())
     .then(data => {
-		// FIXME: decide based on user keyboard
+      // FIXME: decide based on user keyboard
       const shape = 'iso';
       keyboard.setKeyboardLayout(data.keymap, data.dead_keys, shape);
     });
 
-    document.body.classList.add('demo');
-    demo.hidden = false;
-    input.value = '';
-    input.focus();
+  document.body.classList.add('demo');
+  demo.hidden = false;
+  input.value = '';
+  input.focus();
 
   /**
    * Keyboard highlighting & layout emulation
