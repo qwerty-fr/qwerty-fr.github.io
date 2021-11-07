@@ -3,49 +3,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const keyboard = document.querySelector('x-keyboard');
   const input    = document.querySelector('input');
+  const demo     = document.querySelector('#demo');
 
-  // keyboard state: these <select> element IDs match the x-keyboard properties
-  // -- but the `layout` property requires a JSON fetch
-  const IDs = [ 'layout', 'geometry', 'platform', 'theme' ];
-  const setProp = (key, value) => {
-    if (key === 'layout') {
-      if (value) {
-        fetch(`layouts/${value}.json`)
-          .then((response) => response.json())
-          .then((data) => keyboard.setKeyboardLayout(data.keymap, data.deadkeys,
-            data.geometry.replace('ergo', 'iso')));
-        input.placeholder = 'type here';
-      } else {
-        keyboard.setKeyboardLayout();
-        input.placeholder = 'select a keyboard layout';
-      }
-    } else {
-      keyboard[key] = value;
-    }
-    document.getElementById(key).value = value;
-  };
+  if (!keyboard.layout) {
+    console.warn('web component x-keyboard couldn\'t be loaded');
+    return; // the web component has not been loaded
+  }
 
-  // store the keyboard state in the URL hash like it's 1995 again! :-)
-  const state = {};
-  const updateHashState = (key, value) => {
-    state[key] = value;
-    window.location.hash = IDs
-      .reduce((hash, prop) => `${hash}/${state[prop]}`, '')
-      .replace(/\/+$/, '');
-  };
-  const applyHashState = () => {
-    const hashState = window.location.hash.split('/').slice(1);
-    IDs.forEach((key, i) => {
-      setProp(key, hashState[i] || '');
-      state[key] = hashState[i] || '';
+  fetch(`layouts/qwerty-fr.json`)
+    .then(response => response.json())
+    .then(data => {
+		// FIXME: decide based on user keyboard
+      const shape = 'iso';
+      keyboard.setKeyboardLayout(data.keymap, data.dead_keys, shape);
     });
-  };
-  IDs.forEach((key) => {
-    document.getElementById(key).addEventListener('change',
-      (event) => updateHashState(key, event.target.value));
-  });
-  window.addEventListener('hashchange', applyHashState);
-  applyHashState();
+
+    document.body.classList.add('demo');
+    demo.hidden = false;
+    input.value = '';
+    input.focus();
+
+  /**
+   * Keyboard highlighting & layout emulation
+   */
 
   // required to work around a Chrome bug, see the `keyup` listener below
   const pressedKeys = {};
@@ -58,8 +38,8 @@ window.addEventListener('DOMContentLoaded', () => {
       event.target.value += value;
     } else if (event.code === 'Enter') { // clear text input on <Enter>
       event.target.value = '';
-    } else if (event.code === 'Tab') { // focus the layout selector
-      setTimeout(() => document.getElementById('layout').focus(), 100);
+    } else if ((event.code === 'Tab') || (event.code === 'Escape')) {
+      setTimeout(close, 100);
     } else {
       return true; // don't intercept special keys or key shortcuts
     }
@@ -95,10 +75,4 @@ window.addEventListener('DOMContentLoaded', () => {
       event.target.value = event.target.value.slice(0, -event.data.length);
     }
   });
-
-  window.addEventListener('focusout', () => keyboard.clearStyle());
-
-  // ready to type!
-  input.value = '';
-  input.focus();
 });
