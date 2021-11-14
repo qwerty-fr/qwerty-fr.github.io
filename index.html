@@ -11,7 +11,7 @@
 			box-sizing: border-box;
 			margin: auto;
 			padding: 1.5em 2em 1em;
-			border-radius: 5px;
+			border-radius: 25px;
 		}
 
 		#keyboard-demo>input {
@@ -36,7 +36,7 @@
 		}
 
 		.section {
-			width: 740px;
+			max-width: 740px;
 			margin: auto;
 			margin-top: 40px;
 			padding: 20px;
@@ -62,6 +62,26 @@
 						0) 42%);
 		}
 	</style>
+	<style>
+		a.button-link {
+			cursor: pointer;
+			text-decoration: none;
+		}
+
+		div.button {
+			align-items: center;
+			background-color: #E56B6F;
+			border-radius: 999px;
+			box-shadow: 0 10px 20px -10px #E56B6F;
+			color: #FFFFFF;
+			padding: 12px 20px;
+			position: relative;
+			width: fit-content;
+			margin: auto;
+			font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+			line-height: 24px;
+		}
+	</style>
 </head>
 
 <body class="demo">
@@ -77,8 +97,16 @@
 		</div>
 	</div>
 
-	<p class="section">
-		QWERTY-fr is a keyboard layout that brings the best of both worlds — a full compatibility with the most popular
-		keyboard layout in the world, and extra keys to type French effortlessly and fast.
-	</p>
+	<div class="section">
+		<p>
+			QWERTY-fr is a keyboard layout that brings the best of both worlds — a full compatibility with the most
+			popular
+			keyboard layout in the world, and extra keys to type French effortlessly and fast.
+		</p>
+
+		<a class="button-link" href="https://github.com/qwerty-fr/qwerty-fr#readme" rel="noreferrer">
+			<div class="button">
+				Learn more
+			</div>
+		</a>
 </body>
