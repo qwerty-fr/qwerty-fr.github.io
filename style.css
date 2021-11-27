@@ -75,9 +75,16 @@ button:hover {
   box-shadow: 0 13px 11px -10px #E56B6F;
 }
 
+button.go-back {
+  background-color: #B0A9A9;
+}
+
+button.go-back img {
+  transform: rotate(-180deg);
+}
+
 input.box {
   max-width: 1000px;
-  width: 100%;
   margin: 0px 20px;
   border: none;
 
@@ -88,7 +95,6 @@ input.box {
 
 #keyboard-demo {
   max-width: 1000px;
-  width: 100%;
 }
 
 .hidden {
