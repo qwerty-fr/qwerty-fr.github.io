@@ -1,3 +1,35 @@
+/**
+ * General events
+ */
+const tryOutButton = document.getElementById('try-out');
+const learnMoreButton = document.getElementById('learn-more');
+const sections = Array.from(document.getElementsByTagName('section'));
+const [infoBox, keyboardDemo] = sections;
+
+tryOutButton.addEventListener('click', () => {
+  if (infoBox.classList.contains('hidden')) {
+    infoBox.classList.remove('hidden');
+    keyboardDemo.classList.add('hidden');
+
+    tryOutButton.classList.remove('go-back');
+    tryOutButton.lastElementChild.innerHTML = 'Try out';
+  } else {
+    infoBox.classList.add('hidden');
+    keyboardDemo.classList.remove('hidden');
+
+    tryOutButton.classList.add('go-back');
+    tryOutButton.lastElementChild.innerHTML = 'Go back';
+
+    infoBox.focus(); // needs debugging
+  }
+});
+
+learnMoreButton.addEventListener('click', () => {
+  window.location='https://github.com/qwerty-fr/qwerty-fr#readme';
+});
+
+
+
 window.addEventListener('DOMContentLoaded', () => {
   'use strict'; // eslint-disable-line
 
