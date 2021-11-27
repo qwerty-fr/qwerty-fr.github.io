@@ -77,6 +77,7 @@ button:hover {
 
 button.go-back {
   background-color: #B0A9A9;
+  box-shadow: 0 10px 10px -10px #B0A9A9;
 }
 
 button.go-back img {
@@ -91,6 +92,10 @@ input.box {
   /* Typography */
   text-align: center;
   font-size: 1em;
+}
+
+input.box:focus {
+  outline: none;
 }
 
 #keyboard-demo {
