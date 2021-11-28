@@ -45,14 +45,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     return; // the web component has not been loaded
   }
 
-  const data = await (await fetch('./layouts/qwerty-fr.json')).json();
+  const data = await (await fetch('layouts/qwerty-fr.json')).json();
   const shape = 'iso'; // FIXME: decide based on user keyboard
   keyboard.setKeyboardLayout(data.keymap, data.deadkeys, shape);
 
   /**
    * Overwrite CSS of shadow DOM
    */
-  const stylesheet = await (await fetch('./keyboard.css')).text();
+  const stylesheet = await (await fetch('style/keyboard.css')).text();
   keyboard.shadowRoot.firstElementChild.innerHTML += stylesheet;
 
   /**
