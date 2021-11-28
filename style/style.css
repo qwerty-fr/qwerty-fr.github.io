@@ -7,6 +7,7 @@
   --medium-light-grey: #D2CCCC;
   --medium-grey: #B0A9A9;
   --dark-grey: #6B6F76;
+  --anthracite: #333333;
 }
 
 body {
@@ -39,10 +40,12 @@ section {
 h1 {
   margin: 20px;
 
+  /* Typography */
   font-size: 1.8em;
   font-weight: bold;
   line-height: 1.4em;
   letter-spacing: -1px;
+  color: var(--anthracite);
 }
 
 p {
@@ -53,6 +56,20 @@ p {
 button a {
   text-decoration: none;
   color: white;
+}
+
+#cursor {
+  fill: var(--anthracite);
+
+  /* Animation */
+  animation: blink 2s linear infinite running;
+}
+
+@keyframes blink {
+  2% { opacity: 0; }
+  48% { opacity: 0; }
+  52% { opacity: 1; }
+  98% { opacity: 1; }
 }
 
 .hidden {
@@ -86,6 +103,16 @@ button a {
 }
 
 /* Mobile only */
+
+svg {
+  /* Not very robust, has to be fixed once another svg is implemented! */
+  transform: translate(0, 5px);
+}
+
+svg, #cursor {
+  width: 4px;
+  height: 34px;
+}
 
 #try-out {
   visibility: hidden;
@@ -145,6 +172,16 @@ button a {
   
   input.box:focus {
     outline: none;
+  }
+
+  svg {
+    /* Not very robust, has to be fixed once another svg is implemented! */
+    transform: translate(0, 8px);
+  }
+
+  svg, #cursor {
+    width: 7px;
+    height: 62px;
   }
 
   #try-out {
