@@ -5,8 +5,8 @@
  */
 const tryOutButton = document.getElementById('try-out');
 const learnMoreButton = document.getElementById('learn-more');
-const sections = Array.from(document.getElementsByTagName('section'));
-const [infoBox, keyboardDemo] = sections;
+const articles = Array.from(document.getElementsByTagName('article'));
+const [infoBox, keyboardDemo] = articles;
 const input = keyboardDemo.firstElementChild;
 
 tryOutButton.addEventListener('click', () => {

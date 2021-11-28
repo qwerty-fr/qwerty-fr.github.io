@@ -12,6 +12,7 @@
 
 body {
   height: 100vh;
+  margin: 0px;
 
   display: flex;
   flex-direction: column;
@@ -28,13 +29,25 @@ body {
   font-size: 18px;
 }
 
-section {
+section, article {
   max-width: 1000px;
+  width: 100%;
   margin-top: 5px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+article {
+  max-height: 500px; /* necessary for css transition */
+
+  grid-area: 1 / 1 / 2 / 2;
+
+  transition: max-height 0.5s ease-in-out, opacity 0.25s;
 }
 
 h1 {
@@ -58,6 +71,22 @@ button a {
   color: white;
 }
 
+footer {
+  margin: 20px;
+  position: absolute;
+  bottom: 0px;
+
+  /* Typography */
+  font-size: 0.9em;
+  color: var(--medium-grey);
+}
+
+footer a {
+  text-decoration: none;
+  border-bottom: 2px dotted var(--medium-grey);
+  color: var(--medium-grey);
+}
+
 #cursor {
   fill: var(--anthracite);
 
@@ -73,8 +102,10 @@ button a {
 }
 
 .hidden {
-  visibility: hidden;
-  display: none;
+  max-height: 0px;
+  opacity: 0;
+  /* visibility: hidden;
+  display: none; */
 }
 
 .bold {
@@ -161,7 +192,8 @@ svg, #cursor {
   }
 
   input.box {
-    max-width: 1000px;
+    max-width: 900px;
+    width: 100%;
     margin: 20px 20px 0px 20px;
     border: none;
   
@@ -190,7 +222,8 @@ svg, #cursor {
   }
   
   #keyboard-demo {
-    max-width: 1000px;
+    max-width: 900px;
+    width: 100%;
   }
 
   .buttons {
