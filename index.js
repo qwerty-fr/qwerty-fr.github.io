@@ -52,8 +52,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   /**
    * Overwrite CSS of shadow DOM
    */
-  // const stylesheet = './keyboard.css';
-  // keyboard.shadowRoot.adoptedStyleSheets = [stylesheet];
+  const stylesheet = await (await fetch('./keyboard.css')).text();
+  keyboard.shadowRoot.firstElementChild.innerHTML += stylesheet;
 
   /**
    * Keyboard highlighting & layout emulation

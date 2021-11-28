@@ -1,5 +1,14 @@
 /* General styling */
 
+:root {
+  --dark-coral: #E56B6F;
+  --light-pink: #FFDEDC;
+  --light-grey: #F9EAEA;
+  --medium-light-grey: #D2CCCC;
+  --medium-grey: #B0A9A9;
+  --dark-grey: #6B6F76;
+}
+
 body {
   height: 100vh;
 
@@ -8,7 +17,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background-color: #FFDEDC;
+  background-color: var(--light-pink);
 
   /* Basic typography */
   font-family: Inter, Helvetica, Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Noto Color Emoji, Segoe UI Symbol, Android Emoji, EmojiSymbols, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Noto Sans, sans-serif;
@@ -43,7 +52,7 @@ p {
 
 button a {
   text-decoration: none;
-  color: #FFFFFF;
+  color: white;
 }
 
 .hidden {
@@ -69,11 +78,11 @@ button a {
 
   border-radius: 30px;
 
-  background-color: #F9EAEA;
-  box-shadow: 0 8px 10px -10px #000000;
+  background-color: var(--light-grey);
+  box-shadow: 0 8px 10px -10px black;
 
   /* Typography */
-  color: #6B6F76;
+  color: var(--dark-grey);
 }
 
 /* Mobile only */
@@ -90,7 +99,7 @@ button a {
 }
 
 .underline {
-  border-bottom: 5px solid #E56B6F;
+  border-bottom: 5px solid var(--dark-coral);
 }
 
 @media only screen and (min-width: 768px) {
@@ -112,12 +121,12 @@ button a {
     cursor: pointer;
   
     scale: 1.05;
-    box-shadow: 0 13px 11px -10px #E56B6F;
+    box-shadow: 0 13px 11px -10px var(--dark-coral);
   }
 
   button.go-back {
-    background-color: #B0A9A9;
-    box-shadow: 0 10px 10px -10px #B0A9A9;
+    background-color: var(--medium-grey);
+    box-shadow: 0 10px 10px -10px var(--medium-grey);
   }
   
   button.go-back img {
@@ -158,7 +167,7 @@ button a {
   }
 
   .underline {
-    border-bottom: 10px solid #E56B6F;;
+    border-bottom: 10px solid var(--dark-coral);
   }
 }
 
@@ -172,14 +181,14 @@ button {
 
   border: none;
   border-radius: 999px;
-  background-color: #E56B6F;
-  box-shadow: 0 10px 10px -10px #E56B6F;
+  background-color: var(--dark-coral);
+  box-shadow: 0 10px 10px -10px var(--dark-coral);
 
   /* Typography */
   font-size: 1em;
   font-weight: 500;
   line-height: 1.12em;
-  color: #FFFFFF;
+  color: white;
 
   /* Transitions */
   transition: scale 250ms, box-shadow 300ms, background-color 1s;
