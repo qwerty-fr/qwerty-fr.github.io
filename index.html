@@ -1,110 +1,57 @@
-<head>
-	<title>QWERTY-fr French qwerty keyboard layout</title>
-	<script type="text/javascript" src="demo.js"></script>
-	<script type="module" src="x-keyboard@0.4.0/index.js"></script>
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
-	<style>
-		#keyboard-demo {
-			width: 100%;
-			max-width: 70em;
-			background-color: #f4f4f0;
-			box-sizing: border-box;
-			margin: auto;
-			padding: 1.5em 2em 1em;
-			border-radius: 25px;
-		}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>QWERTY-fr French qwerty keyboard layout</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="QWERTY-fr is a keyboard layout that brings the best of multiple worlds&mdash;full compatibility with the most popular
+    keyboard layout in the world, and extra keys to type French (and other languages) effortlessly and fast." />
+    <meta name="keywords" content="QWERTY, keyboard, layout, French" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		#keyboard-demo>input {
-			box-sizing: border-box;
-			width: calc(100% - 8px);
-			text-align: center;
-			font-size: 1.5em;
-			margin-bottom: 1em;
-		}
+    <script defer type="text/javascript" src="index.js"></script>
+    <script defer type="module" src="x-keyboard@0.4.0/index.js"></script>
 
-		#catchphrase {
-			font-family: Inter, Helvetica, Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Noto Color Emoji, Segoe UI Symbol, Android Emoji, EmojiSymbols, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Noto Sans, sans-serif;
-			font-size: 56px;
-			font-weight: 800;
-			letter-spacing: -2.5px;
-			line-height: 63px;
-			overflow-wrap: break-word;
-			text-align: left;
-			text-rendering: optimizelegibility;
-			text-align: center;
-			margin: 70px;
-		}
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/keyboard.css" />
+  </head>
 
-		.section {
-			max-width: 740px;
-			margin: auto;
-			margin-top: 40px;
-			padding: 20px;
-			background-color: white;
+  <body>
+    <h1>
+      The last keyboard layout you'll <span class="underline">ever need</span>.
+      <svg>
+        <rect id="cursor" />
+      </svg>
+    </h1>
 
-			font-family: Inter, Helvetica, Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Noto Color Emoji, Segoe UI Symbol, Android Emoji, EmojiSymbols, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Noto Sans, sans-serif;
-			font-size: large;
-			color: rgb(107, 111, 118);
+    <section>
+      <article>
+        <p class="box">
+          <span class="bold">QWERTY-fr</span> is a keyboard layout that brings the best of multiple worlds&mdash;<span class="bold">full compatibility</span> with the most popular
+          keyboard layout in the world, and <span class="bold">extra keys</span> to type French (and other languages) effortlessly and fast.
+        </p>
+      </article>
+  
+      <article class="hidden">
+        <input spellcheck="false" autofocus class="box" />
+        <div id="keyboard-demo" class="box">
+          <x-keyboard></x-keyboard>
+        </div>
+      </article>
+    </section>
 
-			background-color: rgb(245, 245, 245);
-		}
+    <div class="buttons">
+      <button id="try-out">
+        <img src="img/arrow_white.png" class="icon" />
+        <p>Try out</p>
+      </button>
+      <button id="learn-more">
+        <img src="img/GitHub-Mark-Light-64px.png" class="icon" />
+        <p><a href="https://github.com/qwerty-fr/qwerty-fr#readme">Learn more</a></p>
+      </button>
+    </div>
 
-		.underline {
-			border-bottom: 10px solid #E56B6F;
-		}
-
-		.demo {
-			background: linear-gradient(90deg,
-					#ffc5ca 10%,
-					rgba(60,
-						46,
-						71,
-						0) 42%);
-		}
-	</style>
-	<style>
-		a.button-link {
-			cursor: pointer;
-			text-decoration: none;
-		}
-
-		div.button {
-			align-items: center;
-			background-color: #E56B6F;
-			border-radius: 999px;
-			box-shadow: 0 10px 20px -10px #E56B6F;
-			color: #FFFFFF;
-			padding: 12px 20px;
-			position: relative;
-			width: fit-content;
-			margin: auto;
-			font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
-			line-height: 24px;
-		}
-	</style>
-</head>
-
-<body class="demo">
-	<a class="github-fork-ribbon" href="https://github.com/qwerty-fr/qwerty-fr" data-ribbon="Fork me on GitHub"
-		title="Fork me on GitHub">Fork me on GitHub</a>
-
-	<h1 id="catchphrase">The last keyboard layout you'll <span class="underline">ever need</span>.</h1>
-
-	<div id="demo">
-		<div id="keyboard-demo">
-			<input spellcheck="false" autofocus>
-			<x-keyboard></x-keyboard>
-		</div>
-	</div>
-
-	<div class="section">
-		QWERTY-fr is a keyboard layout that brings the best of both worlds — a full compatibility with the most popular
-		keyboard layout in the world, and extra keys to type French effortlessly and fast.
-
-		<a class="button-link" href="https://github.com/qwerty-fr/qwerty-fr#readme" rel="noreferrer">
-			<div class="button">
-				Learn more
-			</div>
-		</a>
-</body>
+    <footer>
+      <p>QWERTY-fr is free and open source software, feel free to collaborate on <a href="https://github.com/qwerty-fr/qwerty-fr">GitHub</a>.</p>
+    </footer>
+  </body>
+</html>

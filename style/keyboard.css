@@ -1,0 +1,33 @@
+  /* Keys */
+  rect, path {
+    stroke: var(--medium-grey);
+    stroke-width: .5px;
+    fill: white;
+  }
+
+  /* Special keys (shift, enter, etc.) */
+  .specialKey,
+  .specialKey rect,
+  .specialKey path {
+    fill: var(--medium-light-grey);
+  }
+
+  /* General text */
+  text {
+    fill: var(--dark-grey);
+    font-family: Inter, Helvetica, Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Noto Color Emoji, Segoe UI Symbol, Android Emoji, EmojiSymbols, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Noto Sans, sans-serif;
+  }
+
+  g:target rect, .press rect,
+  g:target path, .press path {
+    fill: var(--light-pink);
+  }
+
+  /* dimmed AltGr & bold dead keys */
+  .level3, .level4 { fill: var(--dark-coral); opacity: 0.6; }
+  .level5, .level6 { fill: #64d89e; }
+  .deadKey {
+    fill: #6C89E9;
+    opacity: 1;
+    font-size: 14px;
+  }

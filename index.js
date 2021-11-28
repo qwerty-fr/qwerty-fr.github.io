@@ -1,27 +1,59 @@
-window.addEventListener('DOMContentLoaded', () => {
-  'use strict'; // eslint-disable-line
+'use strict'; // eslint-disable-line
 
+/**
+ * General events
+ */
+const tryOutButton = document.getElementById('try-out');
+const learnMoreButton = document.getElementById('learn-more');
+const articles = Array.from(document.getElementsByTagName('article'));
+const [infoBox, keyboardDemo] = articles;
+const input = keyboardDemo.firstElementChild;
+
+tryOutButton.addEventListener('click', () => {
+  if (infoBox.classList.contains('hidden')) {
+    infoBox.classList.remove('hidden');
+    keyboardDemo.classList.add('hidden');
+
+    tryOutButton.classList.remove('go-back');
+    tryOutButton.lastElementChild.innerHTML = 'Try out';
+  } else {
+    infoBox.classList.add('hidden');
+    keyboardDemo.classList.remove('hidden');
+
+    tryOutButton.classList.add('go-back');
+    tryOutButton.lastElementChild.innerHTML = 'Go back';
+
+    input.focus();
+    input.value = '';
+    // FIXME: add max character count to input field
+  }
+});
+
+learnMoreButton.addEventListener('click', () => {
+  window.location='https://github.com/qwerty-fr/qwerty-fr#readme';
+});
+
+/**
+ * Keyboard emulation
+ */
+
+window.addEventListener('DOMContentLoaded', async () => {
   const keyboard = document.querySelector('x-keyboard');
-  const input = document.querySelector('input');
-  const demo = document.querySelector('#demo');
-
+  
   if (!keyboard.layout) {
     console.warn('web component x-keyboard couldn\'t be loaded');
     return; // the web component has not been loaded
   }
 
-  fetch(`layouts/qwerty-fr.json`)
-    .then(response => response.json())
-    .then(data => {
-      // FIXME: decide based on user keyboard
-      const shape = 'iso';
-      keyboard.setKeyboardLayout(data.keymap, data.deadkeys, shape);
-    });
+  const data = await (await fetch('layouts/qwerty-fr.json')).json();
+  const shape = 'iso'; // FIXME: decide based on user keyboard
+  keyboard.setKeyboardLayout(data.keymap, data.deadkeys, shape);
 
-  document.body.classList.add('demo');
-  demo.hidden = false;
-  input.value = '';
-  input.focus();
+  /**
+   * Overwrite CSS of shadow DOM
+   */
+  const stylesheet = await (await fetch('style/keyboard.css')).text();
+  keyboard.shadowRoot.firstElementChild.innerHTML += stylesheet;
 
   /**
    * Keyboard highlighting & layout emulation
@@ -31,7 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const pressedKeys = {};
 
   // highlight keyboard keys and emulate the selected layout
-  input.onkeydown = (event) => {
+  input.addEventListener('keydown', (event) => {
     pressedKeys[event.code] = true;
     const value = keyboard.keyDown(event);
     if (value) {
@@ -44,7 +76,8 @@ window.addEventListener('DOMContentLoaded', () => {
       return true; // don't intercept special keys or key shortcuts
     }
     return false; // event has been consumed, stop propagation
-  };
+  });
+
   input.addEventListener('keyup', (event) => {
     if (pressedKeys[event.code]) { // expected behavior
       keyboard.keyUp(event);
