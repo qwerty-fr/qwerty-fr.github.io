@@ -50,6 +50,10 @@ article {
   transition: max-height 0.5s ease-in-out, opacity 0.25s;
 }
 
+article p {
+  margin-bottom: 10px;
+}
+
 h1 {
   margin: 20px;
 
@@ -64,6 +68,10 @@ h1 {
 p {
   font-size: 1em;
   line-height: 1.2em;
+}
+
+ul {
+  margin-top: 0px;
 }
 
 button a {
