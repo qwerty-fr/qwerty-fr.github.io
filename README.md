@@ -7,4 +7,4 @@
 
 **Update the JSON**
 - Get [`qwerty-fr.yaml`](https://github.com/qwerty-fr/qwerty-fr/blob/master/qwerty-fr.yaml) from the main repo.
-- `python3 -m kalamine.cmd --out qwerty-fr.json qwerty-fr.yaml`
+- `python3 -m kalamine.cli --out qwerty-fr.json qwerty-fr.yaml`
