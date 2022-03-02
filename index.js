@@ -15,7 +15,7 @@ tryOutButton.addEventListener('click', () => {
     keyboardDemo.classList.add('hidden');
 
     tryOutButton.classList.remove('go-back');
-    tryOutButton.lastElementChild.innerHTML = 'Try it out';
+    tryOutButton.lastElementChild.innerHTML = 'Try it online!';
   } else {
     infoBox.classList.add('hidden');
     keyboardDemo.classList.remove('hidden');
