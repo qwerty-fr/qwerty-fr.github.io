@@ -11,7 +11,7 @@
 }
 
 body {
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0px;
 
   display: flex;
@@ -74,14 +74,24 @@ ul {
   margin-top: 0px;
 }
 
-button a {
-  text-decoration: none;
-  color: white;
+hr {
+  border: 1px solid var(--dark-coral);
+  width: 30%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+}
+
+li {
+  padding: 6px;
 }
 
 footer {
   margin: 20px;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0px;
 
   /* Typography */
@@ -129,8 +139,10 @@ footer a {
 
 .box {
   max-width: 820px;
-  margin: 20px;
   padding: 25px 40px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   border-radius: 30px;
 
