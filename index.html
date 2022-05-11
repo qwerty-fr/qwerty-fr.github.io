@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>QWERTY-fr French qwerty keyboard layout</title>
     <meta charset="utf-8" />
     <meta name="description" content="QWERTY-fr is a keyboard layout that brings the best of multiple worlds&mdash;full compatibility with the most popular
@@ -10,78 +11,103 @@
 
     <script defer type="text/javascript" src="index.js"></script>
     <script defer type="module" src="x-keyboard@0.4.0/index.js"></script>
+    <script defer type="text/javascript" src="fullpage-scroll.js"></script>
 
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/keyboard.css" />
-  </head>
+    <link rel="stylesheet" href="style/fullpage-scroll.css" />
+</head>
 
-  <body>
-    <h1>
-      The last keyboard layout you'll <span class="underline">ever need</span>.
-      <svg>
-        <rect id="cursor" />
-      </svg>
-    </h1>
-
-    <section>
-      <article>
-        <div class="box">
-          <p>
-            <span class="bold">QWERTY-fr</span> is a keyboard layout that brings the best of multiple worlds:<br />
-          </p>
-          <ul>
-            <li><span class="bold">Full compatibility</span> with QWERTY, no keys are moved.</li>
-            <li><span class="bold">Extra keys</span> to type French, Italian, and German (and many other languages) effortlessly and fast.</li>
-            <li><span class="bold">Supports</span> all major PC operating systems.</li>
-          </ul>
+<body>
+    <div class="layout">
+        <div class="section-stick">
+            <div class="stick active"></div>
         </div>
-      </article>
-  
-      <article class="hidden">
-        <input spellcheck="false" autofocus class="box" />
-        <div id="keyboard-demo" class="box">
-          <x-keyboard></x-keyboard>
-        </div>
-      </article>
-    </section>
+        <section class="s1">
+            <div class="home">
+                <h1>
+                    The last keyboard layout you'll <span class="underline">ever need</span>.
+                    <svg>
+                      <rect id="cursor" />
+                   </svg>
+                </h1>
+                <div class="section">
+                    <div class="article">
+                        <div class="box" id="info-box">
+                            <p>
+                                <span class="bold">QWERTY-fr</span> is a keyboard layout that brings the best of multiple worlds:<br />
+                            </p>
+                            <ul>
+                                <li><span class="bold">Full compatibility</span> with QWERTY, no keys are moved.</li>
+                                <li><span class="bold">Extra keys</span> to type French, Italian, and German (and many other languages) effortlessly and fast.</li>
+                                <li><span class="bold">Supports</span> all major PC operating systems.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="article hidden" id="keyboard-demo-div">
+                        <input spellcheck="false" autofocus class="box" id="keyboard-demo-input" />
+                        <div class="box" id="keyboard-demo">
+                            <x-keyboard></x-keyboard>
+                        </div>
+                    </div>
+                    <div class="article buttons">
+                        <button id="learn-more">
+                      <img src="img/GitHub-Mark-Light-64px.png" class="icon" />
+                      <p>
+                       <a href="https://github.com/qwerty-fr/qwerty-fr#readme">Learn more</a>
+                     </p>
+                    </button>
+                        <button id="try-out">
+                      <img src="img/arrow_white.png" class="icon" />
+                      <p>Try it online!</p>
+                    </button>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 20 20"><path d="M5 6l5 5l5-5l2 1l-7 7l-7-7z" fill="#fff"></path><rect x="0" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)"></rect></svg>
+            </div>
+        </section>
 
-    <div class="buttons">
-      <button id="learn-more">
-        <img src="img/GitHub-Mark-Light-64px.png" class="icon" />
-        <p><a href="https://github.com/qwerty-fr/qwerty-fr#readme">Learn more</a></p>
-      </button>
-      <button id="try-out">
-        <img src="img/arrow_white.png" class="icon" />
-        <p>Try it online!</p>
-      </button>
-    </div>
+        <section>
+            <article>
 
-    <hr>
-    <h2 class="">Install this layout</h2>
+            </article>
 
-    <div class="buttons">
-      <a href="https://github.com/qwerty-fr/qwerty-fr/releases/download/v0.6/qwerty-fr_0.6_mac.pkg">
-        <button id="download-mac-os">
-          <img src="img/GitHub-Mark-Light-64px.png" class="icon" />
-          <p>macOS</p>
-        </button>
-      </a>
-      <a href="https://github.com/qwerty-fr/qwerty-fr/releases/download/v0.6/qwerty-fr_0.6_windows.zip">
-        <button id="download-windows">
-          <img src="img/Windows 10.png" class="icon" />
-          <p>Windows</p>
-        </button>
-      </a>
-      <a href="https://github.com/qwerty-fr/qwerty-fr/releases/download/v0.6/qwerty-fr_0.6_linux.deb">
-        <button id="download-linux">
-          <img src="img/Linux.png"" class="icon" />
-          <p>Linux</p>
-        </button>
-      </a>
+
+        </section>
+
+
+        </section>
+        <section class="s2">
+            <h2 class="">Install this layout</h2>
+            <div class="buttons">
+                <a href="https://github.com/qwerty-fr/qwerty-fr/releases/download/v0.6/qwerty-fr_0.6_mac.pkg">
+                    <button id="download-mac-os">
+                <img src="img/GitHub-Mark-Light-64px.png" class="icon" />
+                <p>macOS</p>
+              </button>
+                </a>
+                <a href="https://github.com/qwerty-fr/qwerty-fr/releases/download/v0.6/qwerty-fr_0.6_windows.zip">
+                    <button id="download-windows">
+                <img src="img/Windows 10.png" class="icon" />
+                <p>Windows</p>
+              </button>
+                </a>
+                <a href="https://github.com/qwerty-fr/qwerty-fr/releases/download/v0.6/qwerty-fr_0.6_linux.deb">
+                    <button id="download-linux">
+                <img src="img/Linux.png"" class="icon" />
+                <p>Linux</p>
+              </button>
+                </a>
+            </div>
+        </section>
+        <section class="s3">Section Three</section>
+        <section class="s4">Section Four</section>
     </div>
 
     <footer>
-      <p>QWERTY-fr is free and open source software, feel free to collaborate on <a href="https://github.com/qwerty-fr/qwerty-fr">GitHub</a>.</p>
+        <p>QWERTY-fr is free and open source software, feel free to collaborate on <a href="https://github.com/qwerty-fr/qwerty-fr">GitHub</a>.</p>
     </footer>
-  </body>
+</body>
+
 </html>
