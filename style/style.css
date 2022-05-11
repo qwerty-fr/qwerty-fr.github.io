@@ -1,13 +1,13 @@
 /* General styling */
 
 :root {
-  --dark-coral: #E56B6F;
-  --light-pink: #FFDEDC;
-  --light-grey: #F9EAEA;
-  --medium-light-grey: #D2CCCC;
-  --medium-grey: #B0A9A9;
-  --dark-grey: #6B6F76;
-  --anthracite: #333333;
+    --dark-coral: #E56B6F;
+    --light-pink: #FFDEDC;
+    --light-grey: #F9EAEA;
+    --medium-light-grey: #D2CCCC;
+    --medium-grey: #B0A9A9;
+    --dark-grey: #6B6F76;
+    --anthracite: #333333;
 }
 
 body {
@@ -29,41 +29,39 @@ body {
   font-size: 18px;
 }
 
-section, article {
-  max-width: 1000px;
-  width: 100%;
-  margin-top: 5px;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  align-items: center;
-
-  overflow: hidden;
+.section,
+.article {
+    /* max-width: 1000px; */
+    width: 100%;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    overflow: hidden;
 }
 
 article {
-  max-height: 500px; /* necessary for css transition */
-
-  grid-area: 1 / 1 / 2 / 2;
-
-  transition: max-height 0.5s ease-in-out, opacity 0.25s;
+    max-height: 500px;
+    /* necessary for css transition */
+    grid-area: 1 / 1 / 2 / 2;
+    transition: max-height 0.5s ease-in-out, opacity 0.25s;
 }
 
 h1 {
-  margin: 20px;
-
-  /* Typography */
-  font-size: 1.8em;
-  font-weight: bold;
-  line-height: 1.4em;
-  letter-spacing: -1px;
-  color: var(--anthracite);
+    margin: 20px;
+    /* Typography */
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    line-height: 1.4em;
+    letter-spacing: -1px;
+    color: var(--anthracite);
 }
 
 p {
-  font-size: 1em;
-  line-height: 1.2em;
+    font-size: 1em;
+    line-height: 1.2em;
 }
 
 button a {
@@ -82,41 +80,47 @@ footer {
 }
 
 footer a {
-  text-decoration: none;
-  border-bottom: 2px dotted var(--medium-grey);
-  color: var(--medium-grey);
+    text-decoration: none;
+    border-bottom: 2px dotted var(--medium-grey);
+    color: var(--medium-grey);
 }
 
 #cursor {
-  fill: var(--anthracite);
-
-  /* Animation */
-  animation: blink 2s linear infinite running;
+    fill: var(--anthracite);
+    /* Animation */
+    animation: blink 2s linear infinite running;
 }
 
 @keyframes blink {
-  2% { opacity: 0; }
-  48% { opacity: 0; }
-  52% { opacity: 1; }
-  98% { opacity: 1; }
+    2% {
+        opacity: 0;
+    }
+    48% {
+        opacity: 0;
+    }
+    52% {
+        opacity: 1;
+    }
+    98% {
+        opacity: 1;
+    }
 }
 
 .hidden {
-  max-height: 0px;
-  opacity: 0;
-  /* visibility: hidden;
+    max-height: 0px;
+    opacity: 0;
+    /* visibility: hidden;
   display: none; */
 }
 
 .bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .buttons {
-  margin: 5px;
-
-  display: flex;
-  justify-content: center;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
 }
 
 .box {
@@ -133,137 +137,119 @@ footer a {
   color: var(--dark-grey);
 }
 
+
 /* Mobile only */
 
 svg {
-  /* Not very robust, has to be fixed once another svg is implemented! */
-  transform: translate(0, 5px);
+    /* Not very robust, has to be fixed once another svg is implemented! */
+    transform: translate(0, 5px);
 }
 
-svg, #cursor {
-  width: 4px;
-  height: 34px;
+svg,
+#cursor {
+    width: 4px;
+    height: 34px;
 }
 
 #try-out {
-  visibility: hidden;
-  display: none;
+    visibility: hidden;
+    display: none;
 }
 
 .icon {
-  max-width: 28px;
-  max-height: 28px;
-  margin: 0px;
+    max-width: 28px;
+    max-height: 28px;
+    margin: 0px;
 }
 
 .underline {
-  border-bottom: 5px solid var(--dark-coral);
+    border-bottom: 5px solid var(--dark-coral);
 }
 
 @media only screen and (min-width: 768px) {
-  /* Desktop only */
-
-  body {
-    font-size: 25px;
-  }
-
-  h1 {
-    font-size: 2.4em;
-  }
-
-  button img {
-    transition: transform 1s;
-  }
-
-  button:hover {
-    cursor: pointer;
-  
-    scale: 1.05;
-    box-shadow: 0 13px 11px -10px var(--dark-coral);
-  }
-
-  button.go-back {
-    background-color: var(--medium-grey);
-    box-shadow: 0 10px 10px -10px var(--medium-grey);
-  }
-  
-  button.go-back img {
-    transform: rotate(-180deg);
-  }
-
-  input.box {
-    max-width: 900px;
-    width: 100%;
-    margin: 20px 20px 0px 20px;
-    border: none;
-  
-    /* Typography */
-    text-align: center;
-    font-size: 1em;
-  }
-  
-  input.box:focus {
-    outline: none;
-  }
-
-  svg {
-    /* Not very robust, has to be fixed once another svg is implemented! */
-    transform: translate(0, 8px);
-  }
-
-  svg, #cursor {
-    width: 7px;
-    height: 62px;
-  }
-
-  #try-out {
-    visibility: visible;
-    display: flex;
-  }
-  
-  #keyboard-demo {
-    max-width: 900px;
-    width: 100%;
-  }
-
-  .buttons {
-    margin: 25px;
-  }
-
-  .icon {
-    max-width: 34px;
-    max-height: 34px;
-    margin: 0px;
-  }
-
-  .underline {
-    border-bottom: 10px solid var(--dark-coral);
-  }
+    /* Desktop only */
+    body {
+        font-size: 25px;
+    }
+    h1 {
+        font-size: 2.4em;
+    }
+    button img {
+        transition: transform 1s;
+    }
+    button:hover {
+        cursor: pointer;
+        scale: 1.05;
+        box-shadow: 0 13px 11px -10px var(--dark-coral);
+    }
+    button.go-back {
+        background-color: var(--medium-grey);
+        box-shadow: 0 10px 10px -10px var(--medium-grey);
+    }
+    button.go-back img {
+        transform: rotate(-180deg);
+    }
+    input.box#keyboard-demo {
+        max-width: 900px;
+        width: 100%;
+        margin: 20px 20px 0px 20px;
+        border: none;
+        /* Typography */
+        text-align: center;
+        font-size: 1em;
+    }
+    input.box#keyboard-demo:focus {
+        outline: none;
+    }
+    svg {
+        /* Not very robust, has to be fixed once another svg is implemented! */
+        transform: translate(0, 8px);
+    }
+    svg,
+    #cursor {
+        width: 7px;
+        height: 62px;
+    }
+    #try-out {
+        visibility: visible;
+        display: flex;
+    }
+    #keyboard-demo {
+        max-width: 900px;
+        width: 100%;
+    }
+    .buttons {
+        margin: 25px;
+    }
+    .icon {
+        max-width: 34px;
+        max-height: 34px;
+        margin: 0px;
+    }
+    .underline {
+        border-bottom: 10px solid var(--dark-coral);
+    }
 }
 
 button {
-  margin: 20px;
-  padding: 12px 20px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  border: none;
-  border-radius: 999px;
-  background-color: var(--dark-coral);
-  box-shadow: 0 10px 10px -10px var(--dark-coral);
-
-  /* Typography */
-  font-size: 1em;
-  font-weight: 500;
-  line-height: 1.12em;
-  color: white;
-
-  /* Transitions */
-  transition: scale 250ms, box-shadow 300ms, background-color 1s;
+    margin: 20px;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--dark-coral);
+    box-shadow: 0 10px 10px -10px var(--dark-coral);
+    /* Typography */
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.12em;
+    color: white;
+    /* Transitions */
+    transition: scale 250ms, box-shadow 300ms, background-color 1s;
 }
 
 button p {
-  margin: 0px 10px;
+    margin: 0px 10px;
 }
