@@ -15,21 +15,21 @@ name: qwerty-fr
 name8: q-fr
 description: QWERTY-fr layout
 url: https://github.com/qwerty-fr/qwerty-fr
-version: 0.6.0
+version: 0.7.1
 geometry: ISO
 
 full: |
   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
-  │ ~*~ │ ! ¡ │ @*˝ │ # Ê │ $ € │ %   │ ^*ˇ │ & Û │ * Î │ ( Ô │ ) Ø │ _ — │ + ≈ ┃          ┃
-  │ `*` │ 1 ¹ │ 2 ² │ 3 ê │ 4*¤ │ 5*¯ │ 6*^ │ 7 û │ 8 î │ 9 ô │ 0 ø │ - – │ = ≠ ┃ ⌫        ┃
+  │ ~*~ │ ! ¡ │ @*˝ │ # Ê │ $*¤ │ %*˙ │ ^*ˇ │ & Û │ * Î │ ( Ô │ ) Ø │ _ — │ + ≈ ┃          ┃
+  │ `*` │ 1 ¹ │ 2 ² │ 3 ê │ 4 € │ 5*¯ │ 6*^ │ 7 û │ 8 î │ 9 ô │ 0 ø │ - – │ = ≠ ┃ ⌫        ┃
   ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┳━━━━━━━┫
-  ┃        ┃ Q Â │ W É │ E È │ R © │ T Þ │ Y   │ U Ù │ I Ì │ O Ò │ P Œ │ { “ │ } ” ┃       ┃
-  ┃ ↹      ┃ q â │ w é │ e è │ r ® │ t þ │ y   │ u ù │ i ì │ o ò │ p œ │ [ « │ ] » ┃       ┃
+  ┃        ┃ Q Â │ W É │ E È │ R © │ T Þ │ Y*˘ │ U Ù │ I Ì │ O Ò │ P Œ │ { “ │ } ” ┃       ┃
+  ┃ ↹      ┃ q â │ w é │ e è │ r ® │ t þ │ y*ȃ │ u ù │ i ì │ o ò │ p œ │ [ « │ ] » ┃       ┃
   ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓  ⏎   ┃
-  ┃         ┃ A À │ S Æ │ D Ë │ F   │ G   │ H Ÿ │ J Ü │ K Ï │ L Ö │ :*˚ │ "*¨ │ | „ ┃      ┃
-  ┃ ⇬       ┃ a à │ s æ │ d ë │ f   │ g*α │ h ÿ │ j ü │ k ï │ l ö │ ;*´ │ '*` │ \ ø ┃      ┃
+  ┃         ┃ A À │ S Æ │ D Ë │ F   │ G   │ H Ÿ │ J Ü │ K Ï │ L Ö │ :*° │ "*¨ │ | „ ┃      ┃
+  ┃ ⇬       ┃ a à │ s æ │ d ë │ f   │ g*Ω │ h ÿ │ j ü │ k ï │ l ö │ ;*´ │ '*` │ \   ┃      ┃
   ┣━━━━━━┳━━┹──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┷━━━━━┻━━━━━━┫
-  ┃      ┃ > ≥ │ Z À │ X ÷ │ C Ç │ V   │ B ẞ │ N Ñ │ M   │ <*˛ │ > … │ ? ¿ ┃               ┃
+  ┃      ┃ > ≥ │ Z Ä │ X ÷ │ C Ç │ V   │ B ẞ │ N Ñ │ M   │ <*˛ │ > … │ ? ¿ ┃               ┃
   ┃ ⇧    ┃ < ≤ │ z ä │ x × │ c ç │ v   │ b ß │ n ñ │ m*∫ │ ,*¸ │ . · │ / ’ ┃ ⇧             ┃
   ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
   ┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
@@ -94,6 +94,29 @@ deadkeys:
     alt_space: '~'  # U+007E TILDE
     alt_self:  '~'  # U+007E TILDE
   
+  # FIXME: due to a bug in kalamine/x-keyboard we can't use *̑ or * ̑ because ` ̑` is a combining diacritic
+  # Alternatively we could change x-keyboard so that it displays the `alt_self` symbol instead of the `char`
+  - char: '*ȃ'
+    name: invertedbreve
+    base: AaEeIiOoRrUu
+    alt:  ȂȃȆȇȊȋȎȏȒȓȖȗ
+    alt_space: ' ̑'
+    alt_self: ' ̑'
+  
+  - char: '*˘'
+    name: breve
+    base: AaEeGgHhIiOoUu
+    alt:  ĂăĔĕĞğḪḫĬĭŎŏŬŭ
+    alt_space: '˘'
+    alt_self: '˘'
+
+  - char: '*˙'
+    name: abovedot
+    base: AaBbCcDdEeFfGgHhIiMmNnOoPpRrSsTtWwXxYyZz
+    alt:  ȦȧḂḃĊċḊḋĖėḞḟĠġḢḣİıṀṁṄṅȮȯṖṗṘṙṠṡṪṫẆẇẊẋẎẏŻż
+    alt_space: '˙'
+    alt_self: '˙'
+
   - char: '*¯'
     name: macron
     base: AaÆæDdEeGgIiLlOoTtUuYy
@@ -108,12 +131,12 @@ deadkeys:
     alt_space: '"'  # U+0022 QUOTATION MARK
     alt_self:  '¨'  # U+00A8 DIAERESIS
   
-  - char: '*˚'
+  - char: '*°'
     name: abovering
-    base: AaUuwy
-    alt:  ÅåŮůẘẙ
-    alt_space: '˚'  # U+02DA RING ABOVE
-    alt_self:  '˚'  # U+02DA RING ABOVE
+    base: AaDdEeGgIiOoQqSsUuVvWwXxYy
+    alt:  ÅåD̊d̊E̊e̊G̊g̊I̊i̊O̊o̊Q̊q̊S̊s̊ŮůV̊v̊W̊ẘX̊x̊Y̊ẙ
+    alt_space: '°'  # U+02DA RING ABOVE
+    alt_self:  '°'  # U+02DA RING ABOVE
   
   - char: '*¸'
     name: cedilla
@@ -124,17 +147,17 @@ deadkeys:
   
   - char: '*˛'
     name: ogonek
-    base: AaEeIiOoUu
-    alt:  ĄąĘęĮįǪǫŲų
+    base: AaEeIiNnOoUu
+    alt:  ĄąĘęĮįŊŋǪǫŲų
     alt_space: '˛'  # U+02DB OGONEK
     alt_self:  '˛'  # U+02DB OGONEK
   
-  - char: '*α'
+  - char: '*Ω'
     name: greek
     base: AaBbDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuWwXxYyZz
     alt:  ΑαΒβΔδΕεΦφΓγΗηΙιΘθΚκΛλΜμΝνΟοΠπΧχΡρΣσΤτΥυΩωΞξΨψΖζ
-    alt_space: 'α'  # U+00B5 GREEK SMALL LETTER ALPHA
-    alt_self:  'α'  # U+00B5 GREEK SMALL LETTER ALPHA
+    alt_space: 'Ω'  # U+00B5 GREEK SMALL LETTER ALPHA
+    alt_self:  'Ω'  # U+00B5 GREEK SMALL LETTER ALPHA
   
   - char: '*¤'
     name: currency
@@ -145,7 +168,7 @@ deadkeys:
 
   - char: '*∫'
     name: math
-    base: '!*+,-./0OaeinouôI8N9;<=>?CHLPQRSZ[]c˛dfrtv{|}«¯·»¿çèìîñùŒ’…″‶≠'
-    alt:  '¬⊗⨁⇐±⇒⇔〉○∀∃∈∇∘⋃∅∫∞ℕ⟨∎←≡→↔ℂℋℒ∏ℚℝ∑ℤ⌊⌋⊂⇍∂↦√⊥∨⟦‖⟧⌈↚⇏⌉↮⊄∄∉∝∆⋂∐⇎↛⌉⌈≢'
+    base: '!*+,-./0OaeinouôI8N9;<=>?CHLPQRSZ[]c˛dfrtv{|}«»¯·¿çèìîñùŒ’…“”≠'
+    alt:  '¬⊗⨁⇐±⇒⇔〉○∀∃∈∇∘⋃∅∫∞ℕ⟨∎←≡→↔ℂℋℒ∏ℚℝ∑ℤ⌊⌋⊂⇍∂↦√⊥∨⟦‖⟧⌈⌉↚⇏↮⊄∄∉∝∆⋂∐⇎↛⌈⌉≢'
     alt_space: '∫'
     alt_self:  '∫'
