@@ -2,3 +2,4 @@ node_modules
 **/index.js
 *.swp
 bak
+.DS_Store
