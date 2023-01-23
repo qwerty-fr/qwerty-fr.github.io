@@ -15,22 +15,17 @@ tryOutButton.addEventListener('click', () => {
     keyboardDemo.classList.add('hidden');
 
     tryOutButton.classList.remove('go-back');
-    tryOutButton.lastElementChild.innerHTML = 'Try it online!';
+    tryOutButton.firstElementChild.lastElementChild.innerHTML = 'Try it online!';
   } else {
     infoBox.classList.add('hidden');
     keyboardDemo.classList.remove('hidden');
 
     tryOutButton.classList.add('go-back');
-    tryOutButton.lastElementChild.innerHTML = 'Go back';
+    tryOutButton.firstElementChild.lastElementChild.innerHTML = 'Go back';
 
     input.focus();
     input.value = '';
-    // FIXME: add max character count to input field
   }
-});
-
-learnMoreButton.addEventListener('click', () => {
-  window.location='https://github.com/qwerty-fr/qwerty-fr#readme';
 });
 
 /**
@@ -66,7 +61,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   input.addEventListener('keydown', (event) => {
     pressedKeys[event.code] = true;
     const value = keyboard.keyDown(event);
-    if (value) {
+
+    if (value && event.target.value.length < event.target.clientWidth / 14) { // only append if max character count is not reached
+      // FIXME: Derive fontSize from CSS instead of hard coding
       event.target.value += value;
     } else if (event.code === 'Enter') { // clear text input on <Enter>
       event.target.value = '';
