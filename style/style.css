@@ -219,6 +219,10 @@ footer a {
   display: none;
 }
 
+#installation {
+  flex-direction: column;
+}
+
 .icon {
   max-width: 28px;
   max-height: 28px;
@@ -293,14 +297,18 @@ footer a {
     height: 62px;
   }
 
+  #keyboard-demo {
+    max-width: calc(var(--max-width) - 100px);
+    width: 100%;
+  }
+
   #try-out {
     visibility: visible;
     display: flex;
   }
-  
-  #keyboard-demo {
-    max-width: calc(var(--max-width) - 100px);
-    width: 100%;
+
+  #installation {
+    flex-direction: row;
   }
 
   .buttons {
