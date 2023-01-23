@@ -851,8 +851,7 @@ const themes = `
     font-weight: bolder;
   }
 
-  /* hide Level4 (Shift+AltGr) unless AltGr is pressed */
-  .level4        { display: none; }
+  .level4        { display: block; }
   .altgr .level4 { display: block; }
 
   /* highlight AltGr & Dead Keys */
