@@ -8,6 +8,8 @@
   --medium-grey: #B0A9A9;
   --dark-grey: #6B6F76;
   --anthracite: #333333;
+
+  --max-width: 1000px;
 }
 
 body {
@@ -29,69 +31,100 @@ body {
   font-size: 18px;
 }
 
-section, article {
-  max-width: 1000px;
+section {
+  max-width: var(--max-width);
   width: 100%;
   margin-top: 5px;
 
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-
-  overflow: hidden;
 }
 
-article {
-  max-height: 500px; /* necessary for css transition */
-
-  grid-area: 1 / 1 / 2 / 2;
-
-  transition: max-height 0.5s ease-in-out, opacity 0.25s;
-}
-
-article p {
-  margin-bottom: 10px;
+h1, h2 {
+  /* Typography */
+  font-weight: bold;
+  color: var(--anthracite);  
 }
 
 h1 {
   margin: 20px;
+  margin-top: 40px;
 
   /* Typography */
   font-size: 1.8em;
-  font-weight: bold;
   line-height: 1.4em;
-  letter-spacing: -1px;
-  color: var(--anthracite);
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  margin: 20px;
+  margin-bottom: 10px;
+
+  /* Typography */
+  font-size: 1.2em;
+  line-height: 0.8em;
 }
 
 p {
+  margin-bottom: 10px;
+
+  /* Typography */
   font-size: 1em;
   line-height: 1.2em;
+}
+
+a {
+  text-decoration: none;
 }
 
 ul {
   margin-top: 0px;
 }
 
-/* button a {
-  text-decoration: none;
-  color: white;
-} */
-
-hr {
-  border: 1px solid var(--dark-coral);
-  width: 30%;
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-  cursor: inherit;
-}
-
 li {
   padding: 6px;
+}
+
+hr {
+  border: 2px solid var(--dark-coral);
+  width: calc(0.4 * var(--max-width));
+}
+
+button {
+  margin: 20px;
+  padding: 0px;
+
+  border: none;
+  border-radius: 100px;
+  background-color: var(--dark-coral);
+  box-shadow: 0 10px 10px -10px var(--dark-coral);
+
+  /* Typography */
+  font-size: inherit;
+  line-height: 1.12em;
+  color: white;
+
+  /* Transitions */
+  transition: scale 250ms, box-shadow 300ms, background-color 1s;
+}
+
+button a {
+  display: block;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 12px 20px;
+
+  /* Typography */
+  color: white;
+}
+
+button p {
+  margin: 0px 10px;
 }
 
 footer {
@@ -105,12 +138,11 @@ footer {
 }
 
 footer a {
-  text-decoration: none;
   border-bottom: 2px dotted var(--medium-grey);
   color: var(--medium-grey);
 }
 
-#cursor {
+#cursor rect {
   fill: var(--anthracite);
 
   /* Animation */
@@ -122,6 +154,21 @@ footer a {
   48% { opacity: 0; }
   52% { opacity: 1; }
   98% { opacity: 1; }
+}
+
+.info-section {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 5px 0px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  overflow: hidden;
+
+  max-height: 500px; /* necessary for css transition */
+  transition: max-height 0.5s ease-in-out, opacity 0.25s;
 }
 
 .hidden {
@@ -143,16 +190,14 @@ footer a {
 }
 
 .box {
-  max-width: 820px;
+  max-width: calc(var(--max-width) - 180px);
   padding: 25px 40px;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 20px;
 
   border-radius: 30px;
 
   background-color: var(--light-grey);
-  box-shadow: 0 8px 10px -10px black;
+  box-shadow: 0 8px 10px -10px var(--anthracite);
 
   /* Typography */
   color: var(--dark-grey);
@@ -160,12 +205,11 @@ footer a {
 
 /* Mobile only */
 
-svg {
-  /* Not very robust, has to be fixed once another svg is implemented! */
+#cursor {
   transform: translate(0, 5px);
 }
 
-svg, #cursor {
+#cursor, #cursor rect {
   width: 4px;
   height: 34px;
 }
@@ -178,7 +222,6 @@ svg, #cursor {
 .icon {
   max-width: 28px;
   max-height: 28px;
-  margin: 0px;
 }
 
 .underline {
@@ -196,6 +239,10 @@ svg, #cursor {
     font-size: 2.4em;
   }
 
+  h2 {
+    font-size: 1.6em;
+  }
+
   button img {
     transition: transform 1s;
   }
@@ -205,6 +252,10 @@ svg, #cursor {
   
     scale: 1.05;
     box-shadow: 0 13px 11px -10px var(--dark-coral);
+  }
+
+  button:focus {
+    outline: none;
   }
 
   button.go-back {
@@ -217,9 +268,11 @@ svg, #cursor {
   }
 
   input.box {
-    max-width: 900px;
+    max-width: calc(var(--max-width) - 100px);
     width: 100%;
-    margin: 20px 20px 0px 20px;
+    margin: 20px;
+    margin-bottom: 0px;
+
     border: none;
   
     /* Typography */
@@ -231,12 +284,11 @@ svg, #cursor {
     outline: none;
   }
 
-  svg {
-    /* Not very robust, has to be fixed once another svg is implemented! */
+  #cursor {
     transform: translate(0, 8px);
   }
 
-  svg, #cursor {
+  #cursor, #cursor rect {
     width: 7px;
     height: 62px;
   }
@@ -247,7 +299,7 @@ svg, #cursor {
   }
   
   #keyboard-demo {
-    max-width: 900px;
+    max-width: calc(var(--max-width) - 100px);
     width: 100%;
   }
 
@@ -258,37 +310,9 @@ svg, #cursor {
   .icon {
     max-width: 34px;
     max-height: 34px;
-    margin: 0px;
   }
 
   .underline {
     border-bottom: 10px solid var(--dark-coral);
   }
-}
-
-button {
-  margin: 20px;
-  padding: 12px 20px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  border: none;
-  border-radius: 999px;
-  background-color: var(--dark-coral);
-  box-shadow: 0 10px 10px -10px var(--dark-coral);
-
-  /* Typography */
-  font-size: 1em;
-  font-weight: 500;
-  line-height: 1.12em;
-  color: white;
-
-  /* Transitions */
-  transition: scale 250ms, box-shadow 300ms, background-color 1s;
-}
-
-button p {
-  margin: 0px 10px;
 }
